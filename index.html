@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Webhook Sender</title>
+</head>
+<body>
+  <h1>Enter Webhook Link</h1>
+  <form id="webhook-form">
+    <label for="webhook-link">Webhook URL:</label>
+    <input type="text" id="webhook-link" name="webhook-link" placeholder="Enter the webhook link here">
+    <button type="submit">Send Message</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("webhook-form");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const webhookUrl = document.getElementById("webhook-link").value;
+      const jsonData = {
+        content: "@€veryone Hello!",
+        embeds: [
+          {
+            title: "hello",
+            description: "hello",
+            color: 16711680,
+            author: {
+              name: "hello"
+            },
+            image: {
+              url: "https://cdn.discordapp.com/attachments/1084218636807438408/1199321701838770246/testbars_000000.png?image"
+            },
+            thumbnail: {
+              url: "https://cdn.discordapp.com/attachments/1084218636807438408/1199321701838770246/testbars_000000.png?icon"
+            }
+          }
+        ],
+        attachments: []
+      };
+
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(jsonData)
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Webhook request failed with status: " + response.status);
+          }
+          console.log("Webhook sent successfully!");
+        })
+        .catch(error => {
+          console.error("Error sending webhook:", error);
+        });
+    });
+  </script>
+</body>
+</html>
