@@ -12,11 +12,7 @@
   </form>
 
   <script>
-    Notification.requestPermission().them(perm => {
-      if (perm === "granted") {
-console.log("and now i did it i can send notifications yay")
-      }
-    })
+    Notification.requestPermission()
     
     const form = document.getElementById("webhook-form");
 
