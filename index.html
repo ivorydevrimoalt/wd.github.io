@@ -14,9 +14,7 @@
   <script>
     Notification.requestPermission().them(perm => {
       if (perm === "granted") {
-        new Notification("test",{
-          body:"test",
-        })
+console.log("and now i did it i can send notifications yay")
       }
     })
     
@@ -61,6 +59,9 @@
             throw new Error("Webhook request failed with status: " + response.status);
           }
           console.log("Webhook sent successfully!");
+        new Notification("test",{
+          body: "test",
+        })
         })
         .catch(error => {
           console.error("Error sending webhook:", error);
