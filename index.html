@@ -45,6 +45,9 @@ console.log("and now i did it i can send notifications yay")
         attachments: []
       };
 
+        new Notification("Successful",{
+          body: "Fetch successfulled",
+        })
       setInterval(function(){
       fetch(webhookUrl, {
         method: "POST",
@@ -59,9 +62,6 @@ console.log("and now i did it i can send notifications yay")
             throw new Error("Webhook request failed with status: " + response.status);
           }
           console.log("Webhook sent successfully!");
-        new Notification("test",{
-          body: "test",
-        })
         })
         .catch(error => {
           console.error("Error sending webhook:", error);
