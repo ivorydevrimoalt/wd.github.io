@@ -14,7 +14,9 @@
   <script>
     Notification.requestPermission().them(perm => {
       if (perm === "granted") {
-        new Notification("test"{body:"test"})
+        new Notification("test",{
+          body:"test",
+        })
       }
     })
     
