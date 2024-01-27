@@ -15,6 +15,8 @@
     Notification.requestPermission().them(perm => {
       if (perm === "granted") {
         new Notification("test"{body:"test"})
+      }
+    })
     
     const form = document.getElementById("webhook-form");
 
@@ -23,7 +25,7 @@
 
       const webhookUrl = document.getElementById("webhook-link").value;
       const jsonData = {
-        content: "@Everyone FUCK YOUR SERVERS AND JOIN THAT BABY https://discord.com/channels/1199320963481874492/1199320963481874495/1199332392314339359",
+        content: "@everyone FUCK YOUR SERVERS AND JOIN THAT BABY https://discord.com/channels/1199320963481874492/1199320963481874495/1199332392314339359",
         embeds: [
           {
             title: "YOU NIGGER",
